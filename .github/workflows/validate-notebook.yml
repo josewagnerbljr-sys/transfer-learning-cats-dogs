@@ -1,0 +1,64 @@
+name: Notebook Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-notebook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependências de validação
+        run: pip install nbformat
+
+      - name: Validar estrutura do notebook (.ipynb)
+        run: |
+          python - <<'EOF'
+          import nbformat
+          import sys
+
+          path = "notebook/transfer_learning_cats_vs_dogs.ipynb"
+          nb = nbformat.read(path, as_version=4)
+          nbformat.validate(nb)
+
+          text = " ".join(
+              "".join(cell.get("source", ""))
+              for cell in nb.cells
+          ).lower()
+
+          required_keywords = [
+              "cats_vs_dogs",
+              "mobilenetv2",
+              "fine-tuning".replace("-", ""),
+              "evaluate",
+          ]
+
+          missing = [
+              kw for kw in required_keywords
+              if kw.replace("-", "") not in text.replace("-", "")
+          ]
+
+          if missing:
+              print(f"Seções/termos esperados ausentes: {missing}")
+              sys.exit(1)
+
+          print(f"Notebook válido com {len(nb.cells)} células. Todas as seções esperadas foram encontradas.")
+          EOF
+
+      - name: Checar README
+        run: |
+          if [ ! -f README.md ]; then
+            echo "README.md não encontrado na raiz do repositório."
+            exit 1
+          fi
+          echo "README.md encontrado."
