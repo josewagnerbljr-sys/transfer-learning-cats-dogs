@@ -1,7 +1,7 @@
 # 🐱🐶 Transfer Learning com Deep Learning — Gatos vs Cachorros
 
-[![Notebook Check](https://github.com/SEU_USUARIO/SEU_REPOSITORIO/actions/workflows/validate-notebook.yml/badge.svg)](https://github.com/SEU_USUARIO/SEU_REPOSITORIO/actions/workflows/validate-notebook.yml)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/SEU_USUARIO/SEU_REPOSITORIO/blob/main/notebook/transfer_learning_cats_vs_dogs.ipynb)
+[![Notebook Check](https://github.com/josewagnerbljr-sys/transfer-learning-cats-dogs/actions/workflows/validate-notebook.yml/badge.svg)](https://github.com/josewagnerbljr-sys/transfer-learning-cats-dogs/actions/workflows/validate-notebook.yml)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/josewagnerbljr-sys/transfer-learning-cats-dogs/blob/main/notebook/transfer_learning_cats_vs_dogs.ipynb)
 
 Projeto desenvolvido como conclusão do **Desafio de Projeto — Transfer Learning**, parte da
 trilha de Deep Learning da **Digital Innovation One (DIO)**.
@@ -80,14 +80,14 @@ Split utilizado:
 Clique no badge **"Open In Colab"** no topo deste README, ou acesse diretamente:
 
 ```
-https://colab.research.google.com/github/SEU_USUARIO/SEU_REPOSITORIO/blob/main/notebook/transfer_learning_cats_vs_dogs.ipynb
+https://colab.research.google.com/github/josewagnerbljr-sys/transfer-learning-cats-dogs/blob/main/notebook/transfer_learning_cats_vs_dogs.ipynb
 ```
 
 Recomenda-se ativar GPU em **Ambiente de execução → Alterar tipo de ambiente de execução → GPU**.
 
 ### Opção 2 — Ambiente local
 ```bash
-git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+git clone https://github.com/josewagnerbljr-sys/transfer-learning-cats-dogs.git
 cd SEU_REPOSITORIO
 pip install tensorflow tensorflow-datasets matplotlib numpy jupyter
 jupyter notebook notebook/transfer_learning_cats_vs_dogs.ipynb
